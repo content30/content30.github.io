@@ -1,0 +1,10 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { ContentGrid } from '../../components/ContentGrid';
+import SeoContent from '../../components/SeoContent.astro';
+---
+
+<Layout locale="ja">
+  <ContentGrid locale="ja" client:load />
+  <SeoContent locale="ja" />
+</Layout>

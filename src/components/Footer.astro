@@ -1,0 +1,85 @@
+---
+import type { Locale } from '../types/calendar';
+import { useTranslations, LOCALES, LOCALE_NAMES, getRelativeLocaleUrl } from '../i18n/utils';
+import { Coffee, ShieldCheck, Heart } from 'lucide-react';
+import { GithubIcon } from './SocialIcons';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="mt-20 border-t border-[#1D4533]/15 dark:border-[#2A4E3E] bg-[#F7EAE0]/80 dark:bg-[#0E1B15] text-[#1D4533] dark:text-[#F7EAE0] py-12 px-4 sm:px-6 lg:px-8 transition-colors">
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+    
+    <!-- Left: Brand & Privacy note -->
+    <div class="flex flex-col items-center md:items-start text-center md:text-left gap-1.5">
+      <div class="flex items-center gap-2">
+        <span class="font-extrabold text-xl tracking-tight text-[#1D4533] dark:text-[#F7EAE0]">
+          Content<span class="text-[#5E3122] dark:text-[#F9D2BA]">30</span>
+        </span>
+        <span class="inline-flex items-center gap-1 text-[11px] font-bold px-2 py-0.5 rounded-full bg-[#1D4533]/10 dark:bg-[#F9D2BA]/15 text-[#1D4533] dark:text-[#F9D2BA]">
+          <ShieldCheck className="w-3.5 h-3.5" /> {t.footer.privacyFirst}
+        </span>
+      </div>
+      <p class="text-xs text-[#5E3122]/80 dark:text-[#F7EAE0]/70 max-w-md">
+        {t.footer.tagline} {t.footer.craftedWith}
+      </p>
+    </div>
+
+    <!-- Center: Crawlable Locale Links for Technical SEO -->
+    <div class="flex flex-wrap items-center justify-center gap-3 text-xs font-semibold">
+      {LOCALES.map((loc) => {
+        const meta = LOCALE_NAMES[loc];
+        const isCurrent = loc === locale;
+        return (
+          <a
+            href={getRelativeLocaleUrl(loc)}
+            class={`px-2.5 py-1 rounded-lg transition-colors ${
+              isCurrent
+                ? 'bg-[#1D4533] text-[#F7EAE0] dark:bg-[#F9D2BA] dark:text-[#1D4533]'
+                : 'text-[#5E3122] dark:text-[#F7EAE0]/80 hover:bg-[#F9D2BA]/30 dark:hover:bg-[#1D3B2E]'
+            }`}
+            title={`View in ${meta.name}`}
+          >
+            {meta.flag} {meta.nativeName}
+          </a>
+        );
+      })}
+    </div>
+
+    <!-- Right: Developer Support Button & Links -->
+    <div class="flex items-center gap-3">
+      <a
+        href="https://buymeacoffee.com/kisharadilz"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-bold bg-[#5E3122] text-[#F7EAE0] hover:bg-[#4C271B] dark:bg-[#F9D2BA] dark:text-[#1D4533] shadow-xs hover:shadow transition-all"
+        title="Support the Developer on Buy Me a Coffee"
+      >
+        <Coffee className="w-4 h-4" />
+        <span>{t.footer.supportDevText}</span>
+      </a>
+
+      <a
+        href="https://github.com/content30/content30.github.io"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="p-2 rounded-xl text-[#1D4533] dark:text-[#F7EAE0] hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
+        title="View GitHub Repository"
+        aria-label="GitHub Repository"
+      >
+        <GithubIcon className="w-4 h-4" />
+      </a>
+    </div>
+
+  </div>
+
+  <div class="max-w-7xl mx-auto mt-8 pt-6 border-t border-[#1D4533]/10 dark:border-[#2A4E3E]/60 text-center text-[11px] text-[#5E3122]/60 dark:text-[#F7EAE0]/50">
+    © {currentYear} Content30 • {t.footer.allRightsReserved}
+  </div>
+</footer>

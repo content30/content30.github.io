@@ -1,0 +1,295 @@
+---
+import type { Locale } from '../types/calendar';
+import { seoContentByLocale } from '../i18n/seoContent';
+import { 
+  InstagramIcon, 
+  TikTokIcon, 
+  YoutubeIcon, 
+  XIcon, 
+  LinkedInIcon, 
+  PinterestIcon, 
+  ThreadsIcon, 
+  FacebookIcon 
+} from './SocialIcons';
+import { 
+  CheckCircle2, 
+  XCircle, 
+  HelpCircle, 
+  ArrowRight, 
+  Sparkles, 
+  ShieldCheck, 
+  Zap, 
+  FileSpreadsheet, 
+  Layers, 
+  Target 
+} from 'lucide-react';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const data = seoContentByLocale[locale] || seoContentByLocale.en;
+---
+
+<article class="max-w-7xl mx-auto px-4 sm:px-6 mt-16 sm:mt-24 space-y-16 sm:space-y-24">
+  
+  <!-- Section 1: The 30-Day Content Framework (Core Educational Pillar) -->
+  <section class="p-6 sm:p-10 rounded-3xl bg-white/60 dark:bg-[#162C22] border border-[#1D4533]/15 dark:border-[#2A4E3E] shadow-sm">
+    <div class="max-w-3xl">
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-[#1D4533]/10 dark:bg-[#F9D2BA]/15 text-[#1D4533] dark:text-[#F9D2BA] mb-3">
+        <Target className="w-3.5 h-3.5" />
+        Strategy Architecture
+      </div>
+      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-black text-[#1D4533] dark:text-[#F7EAE0] tracking-tight">
+        {data.frameworkTitle}
+      </h2>
+      <p class="mt-3 text-sm sm:text-base text-[#5E3122]/80 dark:text-[#F7EAE0]/80 leading-relaxed">
+        {data.frameworkSubtitle}
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+      <div class="p-5 rounded-2xl bg-[#F7EAE0]/70 dark:bg-[#12221A] border border-[#1D4533]/10 dark:border-[#2A4E3E]">
+        <div class="w-8 h-8 rounded-lg bg-[#1D4533] text-[#F7EAE0] dark:bg-[#F9D2BA] dark:text-[#1D4533] font-black text-sm flex items-center justify-center mb-3">
+          1
+        </div>
+        <h3 class="font-extrabold text-base text-[#1D4533] dark:text-[#F7EAE0]">
+          Days 1–10: Discovery & Authority
+        </h3>
+        <p class="mt-2 text-xs sm:text-sm text-[#5E3122]/80 dark:text-[#F7EAE0]/70 leading-relaxed">
+          Focus on high-retention vertical video hooks and educational carousels that answer your audience's top 5 most urgent questions. Establish credibility early in the month.
+        </p>
+      </div>
+
+      <div class="p-5 rounded-2xl bg-[#F7EAE0]/70 dark:bg-[#12221A] border border-[#1D4533]/10 dark:border-[#2A4E3E]">
+        <div class="w-8 h-8 rounded-lg bg-[#5E3122] text-[#F7EAE0] dark:bg-[#F9D2BA] dark:text-[#1D4533] font-black text-sm flex items-center justify-center mb-3">
+          2
+        </div>
+        <h3 class="font-extrabold text-base text-[#1D4533] dark:text-[#F7EAE0]">
+          Days 11–20: Engagement & Storytelling
+        </h3>
+        <p class="mt-2 text-xs sm:text-sm text-[#5E3122]/80 dark:text-[#F7EAE0]/70 leading-relaxed">
+          Behind-the-scenes breakdowns, personal wins/failures, client case studies, and contrarian hot takes that spark active conversation and saves.
+        </p>
+      </div>
+
+      <div class="p-5 rounded-2xl bg-[#F7EAE0]/70 dark:bg-[#12221A] border border-[#1D4533]/10 dark:border-[#2A4E3E]">
+        <div class="w-8 h-8 rounded-lg bg-[#2A5E46] text-[#F7EAE0] dark:bg-[#F9D2BA] dark:text-[#1D4533] font-black text-sm flex items-center justify-center mb-3">
+          3
+        </div>
+        <h3 class="font-extrabold text-base text-[#1D4533] dark:text-[#F7EAE0]">
+          Days 21–30: Conversion & Community
+        </h3>
+        <p class="mt-2 text-xs sm:text-sm text-[#5E3122]/80 dark:text-[#F7EAE0]/70 leading-relaxed">
+          Direct calls-to-action, free resource lead magnets, mid-month recaps, and interactive Q&A sessions that turn casual followers into clients and buyers.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: Platform Strategy Matrix -->
+  <section class="space-y-6">
+    <div class="text-center max-w-3xl mx-auto">
+      <h2 class="text-2xl sm:text-3xl font-black text-[#1D4533] dark:text-[#F7EAE0]">
+        {data.platformsTitle}
+      </h2>
+      <p class="mt-2 text-sm sm:text-base text-[#5E3122]/80 dark:text-[#F7EAE0]/80">
+        {data.platformsSubtitle}
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+      
+      <!-- TikTok -->
+      <div class="p-5 rounded-2xl bg-white/60 dark:bg-[#162C22] border border-[#1D4533]/15 dark:border-[#2A4E3E]">
+        <div class="flex items-center gap-2 mb-3">
+          <TikTokIcon className="w-5 h-5 text-black dark:text-white" />
+          <h3 class="font-extrabold text-base text-[#1D4533] dark:text-[#F7EAE0]">TikTok Strategy</h3>
+        </div>
+        <p class="text-xs text-[#5E3122]/80 dark:text-[#F7EAE0]/70 leading-relaxed">
+          Target 15–45s short videos. Hook in first 3 seconds, deliver one clear insight, and end with an engaging comment prompt.
+        </p>
+        <span class="inline-block mt-3 text-[11px] font-bold text-[#1D4533] dark:text-[#F9D2BA] bg-[#1D4533]/10 dark:bg-[#1F3A2E] px-2 py-0.5 rounded-md">
+          Recommended: 1–2x daily
+        </span>
+      </div>
+
+      <!-- Instagram -->
+      <div class="p-5 rounded-2xl bg-white/60 dark:bg-[#162C22] border border-[#1D4533]/15 dark:border-[#2A4E3E]">
+        <div class="flex items-center gap-2 mb-3">
+          <InstagramIcon className="w-5 h-5 text-[#E1306C]" />
+          <h3 class="font-extrabold text-base text-[#1D4533] dark:text-[#F7EAE0]">Instagram Mix</h3>
+        </div>
+        <p class="text-xs text-[#5E3122]/80 dark:text-[#F7EAE0]/70 leading-relaxed">
+          Blend 50% Reels for algorithmic reach, 35% Carousels for high bookmarking/saves, and daily Stories for audience connection.
+        </p>
+        <span class="inline-block mt-3 text-[11px] font-bold text-[#1D4533] dark:text-[#F9D2BA] bg-[#1D4533]/10 dark:bg-[#1F3A2E] px-2 py-0.5 rounded-md">
+          Recommended: 4–6x weekly
+        </span>
+      </div>
+
+      <!-- YouTube -->
+      <div class="p-5 rounded-2xl bg-white/60 dark:bg-[#162C22] border border-[#1D4533]/15 dark:border-[#2A4E3E]">
+        <div class="flex items-center gap-2 mb-3">
+          <YoutubeIcon className="w-5 h-5 text-[#FF0000]" />
+          <h3 class="font-extrabold text-base text-[#1D4533] dark:text-[#F7EAE0]">YouTube Growth</h3>
+        </div>
+        <p class="text-xs text-[#5E3122]/80 dark:text-[#F7EAE0]/70 leading-relaxed">
+          Use YouTube Shorts to attract new subscribers and funnel them to detailed long-form tutorials and monthly review videos.
+        </p>
+        <span class="inline-block mt-3 text-[11px] font-bold text-[#1D4533] dark:text-[#F9D2BA] bg-[#1D4533]/10 dark:bg-[#1F3A2E] px-2 py-0.5 rounded-md">
+          Recommended: 1 Long + 3 Shorts
+        </span>
+      </div>
+
+      <!-- LinkedIn -->
+      <div class="p-5 rounded-2xl bg-white/60 dark:bg-[#162C22] border border-[#1D4533]/15 dark:border-[#2A4E3E]">
+        <div class="flex items-center gap-2 mb-3">
+          <LinkedInIcon className="w-5 h-5 text-[#0A66C2]" />
+          <h3 class="font-extrabold text-base text-[#1D4533] dark:text-[#F7EAE0]">LinkedIn B2B</h3>
+        </div>
+        <p class="text-xs text-[#5E3122]/80 dark:text-[#F7EAE0]/70 leading-relaxed">
+          PDF document carousels with frameworks, actionable case studies, and transparent career lessons tailored for business growth.
+        </p>
+        <span class="inline-block mt-3 text-[11px] font-bold text-[#1D4533] dark:text-[#F9D2BA] bg-[#1D4533]/10 dark:bg-[#1F3A2E] px-2 py-0.5 rounded-md">
+          Recommended: 3–5x weekly
+        </span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section 3: Comparison Table (High Conversion & E-E-A-T Factor) -->
+  <section class="p-6 sm:p-10 rounded-3xl bg-white/60 dark:bg-[#162C22] border border-[#1D4533]/15 dark:border-[#2A4E3E] shadow-sm">
+    <div class="max-w-3xl mb-8">
+      <h2 class="text-2xl sm:text-3xl font-black text-[#1D4533] dark:text-[#F7EAE0] tracking-tight">
+        {data.comparisonTitle}
+      </h2>
+      <p class="mt-2 text-sm sm:text-base text-[#5E3122]/80 dark:text-[#F7EAE0]/80">
+        {data.comparisonSubtitle}
+      </p>
+    </div>
+
+    <div class="overflow-x-auto">
+      <table class="w-full text-left text-xs sm:text-sm border-collapse min-w-[550px]">
+        <thead>
+          <tr class="border-b-2 border-[#1D4533]/20 dark:border-[#2A4E3E] text-[#1D4533] dark:text-[#F7EAE0]">
+            <th class="py-3 px-4 font-bold">Feature</th>
+            <th class="py-3 px-4 font-extrabold bg-[#F9D2BA]/40 dark:bg-[#1D3B2E] text-[#1D4533] dark:text-[#F9D2BA] rounded-t-xl">
+              Content30
+            </th>
+            <th class="py-3 px-4 font-medium text-[#5E3122]/70 dark:text-[#F7EAE0]/60">Buffer / Hootsuite</th>
+            <th class="py-3 px-4 font-medium text-[#5E3122]/70 dark:text-[#F7EAE0]/60">Google Sheets / Notion</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-[#1D4533]/10 dark:divide-[#2A4E3E] text-[#1D4533] dark:text-[#F7EAE0]">
+          <tr>
+            <td class="py-3.5 px-4 font-semibold">100% Free Forever</td>
+            <td class="py-3.5 px-4 font-bold bg-[#F9D2BA]/20 dark:bg-[#1D3B2E]/60 text-[#1D4533] dark:text-[#F9D2BA]">
+              <span class="inline-flex items-center gap-1"><CheckCircle2 className="w-4 h-4 text-emerald-600" /> Yes, Zero cost</span>
+            </td>
+            <td class="py-3.5 px-4 text-[#5E3122]/70 dark:text-[#F7EAE0]/60">$15–$99/month</td>
+            <td class="py-3.5 px-4">Free / Limited</td>
+          </tr>
+          <tr>
+            <td class="py-3.5 px-4 font-semibold">Privacy & Local Storage</td>
+            <td class="py-3.5 px-4 font-bold bg-[#F9D2BA]/20 dark:bg-[#1D3B2E]/60 text-[#1D4533] dark:text-[#F9D2BA]">
+              <span class="inline-flex items-center gap-1"><CheckCircle2 className="w-4 h-4 text-emerald-600" /> 100% On-Device</span>
+            </td>
+            <td class="py-3.5 px-4 text-rose-600 dark:text-rose-400">Cloud servers & Tracking</td>
+            <td class="py-3.5 px-4">Cloud servers</td>
+          </tr>
+          <tr>
+            <td class="py-3.5 px-4 font-semibold">Account / Login Required</td>
+            <td class="py-3.5 px-4 font-bold bg-[#F9D2BA]/20 dark:bg-[#1D3B2E]/60 text-[#1D4533] dark:text-[#F9D2BA]">
+              <span class="inline-flex items-center gap-1"><CheckCircle2 className="w-4 h-4 text-emerald-600" /> Zero registration</span>
+            </td>
+            <td class="py-3.5 px-4 text-rose-600 dark:text-rose-400">Mandatory email & password</td>
+            <td class="py-3.5 px-4">Mandatory login</td>
+          </tr>
+          <tr>
+            <td class="py-3.5 px-4 font-semibold">Instant High-Res PNG Export</td>
+            <td class="py-3.5 px-4 font-bold bg-[#F9D2BA]/20 dark:bg-[#1D3B2E]/60 text-[#1D4533] dark:text-[#F9D2BA]">
+              <span class="inline-flex items-center gap-1"><CheckCircle2 className="w-4 h-4 text-emerald-600" /> Built-in 2x PNG</span>
+            </td>
+            <td class="py-3.5 px-4 text-[#5E3122]/70 dark:text-[#F7EAE0]/60">Paid add-on</td>
+            <td class="py-3.5 px-4 text-rose-600 dark:text-rose-400">Manual screenshot only</td>
+          </tr>
+          <tr>
+            <td class="py-3.5 px-4 font-semibold">CSV Spreadsheet Export</td>
+            <td class="py-3.5 px-4 font-bold bg-[#F9D2BA]/20 dark:bg-[#1D3B2E]/60 text-[#1D4533] dark:text-[#F9D2BA]">
+              <span class="inline-flex items-center gap-1"><CheckCircle2 className="w-4 h-4 text-emerald-600" /> 1-Click Instant</span>
+            </td>
+            <td class="py-3.5 px-4">Complex export</td>
+            <td class="py-3.5 px-4">Standard CSV</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Section 4: How-To Step-by-Step Guide -->
+  <section class="space-y-6">
+    <div class="text-center max-w-3xl mx-auto">
+      <h2 class="text-2xl sm:text-3xl font-black text-[#1D4533] dark:text-[#F7EAE0]">
+        {data.howToTitle}
+      </h2>
+      <p class="mt-2 text-sm sm:text-base text-[#5E3122]/80 dark:text-[#F7EAE0]/80">
+        Follow this simple 4-step workflow to plan an entire month of consistent social media posts.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+      {data.howToSteps.map((step, idx) => (
+        <div id={`step-${idx + 1}`} class="p-5 rounded-2xl bg-white/60 dark:bg-[#162C22] border border-[#1D4533]/15 dark:border-[#2A4E3E] relative">
+          <div class="text-xs font-black text-[#5E3122] dark:text-[#F9D2BA] mb-1 uppercase tracking-wider">
+            Step {idx + 1}
+          </div>
+          <h3 class="font-extrabold text-base text-[#1D4533] dark:text-[#F7EAE0] mb-2">
+            {step.name}
+          </h3>
+          <p class="text-xs text-[#5E3122]/80 dark:text-[#F7EAE0]/70 leading-relaxed">
+            {step.text}
+          </p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Section 5: Semantic FAQ Accordion (Directly parsed by Google FAQPage Schema) -->
+  <section class="p-6 sm:p-10 rounded-3xl bg-white/60 dark:bg-[#162C22] border border-[#1D4533]/15 dark:border-[#2A4E3E] shadow-sm">
+    <div class="max-w-3xl mb-8">
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-[#1D4533]/10 dark:bg-[#F9D2BA]/15 text-[#1D4533] dark:text-[#F9D2BA] mb-3">
+        <HelpCircle className="w-3.5 h-3.5" />
+        FAQ
+      </div>
+      <h2 class="text-2xl sm:text-3xl font-black text-[#1D4533] dark:text-[#F7EAE0] tracking-tight">
+        {data.faqTitle}
+      </h2>
+      <p class="mt-2 text-sm sm:text-base text-[#5E3122]/80 dark:text-[#F7EAE0]/80">
+        {data.faqSubtitle}
+      </p>
+    </div>
+
+    <div class="space-y-3">
+      {data.faqs.map((faq, index) => (
+        <details 
+          class="group p-4 sm:p-5 rounded-2xl bg-[#F7EAE0]/50 dark:bg-[#12221A] border border-[#1D4533]/10 dark:border-[#2A4E3E] open:bg-[#F9D2BA]/30 dark:open:bg-[#1D3B2E]/50 transition-colors"
+          open={index === 0}
+        >
+          <summary class="font-bold text-sm sm:text-base text-[#1D4533] dark:text-[#F7EAE0] cursor-pointer flex items-center justify-between gap-4 list-none focus:outline-none">
+            <span>{faq.question}</span>
+            <span class="text-lg font-light text-[#5E3122] dark:text-[#F9D2BA] group-open:rotate-45 transition-transform duration-200">
+              +
+            </span>
+          </summary>
+          <p class="mt-3 text-xs sm:text-sm text-[#5E3122]/90 dark:text-[#F7EAE0]/80 leading-relaxed border-t border-[#1D4533]/10 dark:border-[#2A4E3E]/60 pt-3">
+            {faq.answer}
+          </p>
+        </details>
+      ))}
+    </div>
+  </section>
+
+</article>

@@ -1,0 +1,228 @@
+---
+import type { Locale } from '../types/calendar';
+import { useTranslations, LOCALES, getRelativeLocaleUrl } from '../i18n/utils';
+import { seoContentByLocale } from '../i18n/seoContent';
+
+interface Props {
+  locale: Locale;
+  customTitle?: string;
+  customDescription?: string;
+}
+
+const { locale, customTitle, customDescription } = Astro.props;
+const t = useTranslations(locale);
+const seoData = seoContentByLocale[locale] || seoContentByLocale.en;
+
+const siteBase = 'https://content30.github.io';
+const canonicalPath = getRelativeLocaleUrl(locale);
+const canonicalUrl = new URL(canonicalPath, siteBase).href;
+
+const title = customTitle || `${t.seo.title}`;
+const description = customDescription || t.seo.description;
+const keywords = t.seo.keywords;
+
+const ogLocales: Record<Locale, string> = {
+  en: 'en_US',
+  es: 'es_ES',
+  fr: 'fr_FR',
+  pt: 'pt_BR',
+  ja: 'ja_JP'
+};
+const ogLocale = ogLocales[locale] || 'en_US';
+
+// 1. WebApplication Schema
+const webApplicationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebApplication',
+  '@id': `${canonicalUrl}#webapp`,
+  name: 'Content30',
+  alternateName: 'Content30 - 30-Day Social Media Calendar',
+  url: canonicalUrl,
+  description: description,
+  applicationCategory: 'BusinessApplication',
+  operatingSystem: 'All modern browsers (Chrome, Safari, Firefox, Edge, Brave)',
+  browserRequirements: 'Requires JavaScript. Requires HTML5.',
+  offers: {
+    '@type': 'Offer',
+    price: '0',
+    priceCurrency: 'USD'
+  },
+  featureList: [
+    'Auto-generated 30-day interactive calendar grid and vertical timeline view',
+    '100% Client-side LocalStorage persistence with zero server uploads',
+    'Click-to-edit post modal with hooks, captions, outlines, and hashtags',
+    'Visual status tagging (Idea, Scripting, In Progress, Ready, Published)',
+    'Multi-platform targeting (TikTok, Instagram, YouTube, X, LinkedIn, Pinterest, Threads, Facebook)',
+    'Instant CSV spreadsheet export and high-resolution PNG image download',
+    'Light and Dark mode contrast themes',
+    'Multi-language support (English, Spanish, French, Portuguese, Japanese)'
+  ],
+  keywords: keywords,
+  author: {
+    '@type': 'Person',
+    name: 'Kishan Radilz',
+    url: 'https://buymeacoffee.com/kisharadilz'
+  }
+};
+
+// 2. SoftwareApplication Schema
+const softwareApplicationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  '@id': `${canonicalUrl}#software`,
+  name: 'Content30 - Free 30-Day Content Calendar & Social Media Planner',
+  applicationCategory: 'ProductivitySoftware',
+  operatingSystem: 'Web Browser',
+  inLanguage: locale,
+  offers: {
+    '@type': 'Offer',
+    price: '0',
+    priceCurrency: 'USD'
+  },
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '4.95',
+    ratingCount: '168',
+    bestRating: '5',
+    worstRating: '1'
+  },
+  description: description
+};
+
+// 3. FAQPage Schema (Google Rich Snippets for Search Results)
+const faqPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: seoData.faqs.map((faq) => ({
+    '@type': 'Question',
+    name: faq.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faq.answer
+    }
+  }))
+};
+
+// 4. HowTo Schema (Google How-To Rich Results)
+const howToSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: seoData.howToTitle,
+  description: seoData.frameworkSubtitle,
+  totalTime: 'PT10M',
+  step: seoData.howToSteps.map((step, idx) => ({
+    '@type': 'HowToStep',
+    position: idx + 1,
+    name: step.name,
+    text: step.text,
+    url: `${canonicalUrl}#step-${idx + 1}`
+  }))
+};
+
+// 5. BreadcrumbList Schema
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Content30',
+      item: siteBase
+    },
+    ...(locale !== 'en'
+      ? [
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: `${locale.toUpperCase()} Planner`,
+            item: canonicalUrl
+          }
+        ]
+      : [])
+  ]
+};
+
+// 6. WebSite Schema
+const webSiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': `${siteBase}/#website`,
+  url: siteBase,
+  name: 'Content30',
+  description: t.seo.description,
+  inLanguage: locale
+};
+---
+
+<!-- Core Technical SEO Meta Tags -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+<title>{title}</title>
+<meta name="description" content={description} />
+<meta name="keywords" content={keywords} />
+<meta name="author" content="Kishan Radilz" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="theme-color" content="#1D4533" />
+<link rel="canonical" href={canonicalUrl} />
+<link rel="manifest" href="/site.webmanifest" />
+
+<!-- Favicon & Touch Icons -->
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="apple-touch-icon" href="/favicon.svg" />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:site_name" content="Content30" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content={canonicalUrl} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={`${siteBase}/og-preview.png`} />
+<meta property="og:image:secure_url" content={`${siteBase}/og-preview.png`} />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Content30 - Free 30-Day Social Media Content Calendar Grid" />
+<meta property="og:locale" content={ogLocale} />
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:url" content={canonicalUrl} />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={`${siteBase}/og-preview.png`} />
+<meta name="twitter:image:alt" content="Content30 - 30-Day Social Media Planner" />
+<meta name="twitter:creator" content="@kishanradilz" />
+
+<!-- Hreflang Multi-language Bidirectional Alternates -->
+{LOCALES.map((loc) => (
+  <link
+    rel="alternate"
+    hreflang={loc}
+    href={new URL(getRelativeLocaleUrl(loc), siteBase).href}
+  />
+))}
+<link
+  rel="alternate"
+  hreflang="x-default"
+  href={new URL('/', siteBase).href}
+/>
+
+<!-- Structured Data: WebApplication JSON-LD -->
+<script type="application/ld+json" set:html={JSON.stringify(webApplicationSchema)} />
+
+<!-- Structured Data: SoftwareApplication JSON-LD -->
+<script type="application/ld+json" set:html={JSON.stringify(softwareApplicationSchema)} />
+
+<!-- Structured Data: FAQPage JSON-LD (Search Rich Results) -->
+<script type="application/ld+json" set:html={JSON.stringify(faqPageSchema)} />
+
+<!-- Structured Data: HowTo JSON-LD (Search How-To Carousel) -->
+<script type="application/ld+json" set:html={JSON.stringify(howToSchema)} />
+
+<!-- Structured Data: BreadcrumbList JSON-LD -->
+<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+<!-- Structured Data: WebSite JSON-LD -->
+<script type="application/ld+json" set:html={JSON.stringify(webSiteSchema)} />

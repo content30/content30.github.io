@@ -1,0 +1,60 @@
+---
+import '../styles/global.css';
+import type { Locale } from '../types/calendar';
+import SeoHead from '../components/SeoHead.astro';
+import { Navigation } from '../components/Navigation';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  locale: Locale;
+  customTitle?: string;
+  customDescription?: string;
+}
+
+const { locale = 'en', customTitle, customDescription } = Astro.props;
+---
+
+<!doctype html>
+<html lang={locale} class="scroll-smooth">
+  <head>
+    <SeoHead locale={locale} customTitle={customTitle} customDescription={customDescription} />
+
+    <!-- Google tag (gtag.js) -->
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-2MLN2QCKTN"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-2MLN2QCKTN');
+    </script>
+    
+    <!-- Inline Theme Initializer to prevent Flash of Unstyled Content (FOUC) -->
+    <script is:inline>
+      (function() {
+        try {
+          const stored = localStorage.getItem('c30-theme');
+          const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          if (stored === 'dark' || (!stored && prefersDark)) {
+            document.documentElement.classList.add('dark');
+          } else {
+            document.documentElement.classList.remove('dark');
+          }
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  
+  <body class="bg-[#F7EAE0] dark:bg-[#0E1B15] text-[#1D4533] dark:text-[#F7EAE0] min-h-screen flex flex-col selection:bg-[#F9D2BA] selection:text-[#1D4533]">
+    <!-- Sticky Navigation Island -->
+    <Navigation currentLocale={locale} client:load />
+
+    <!-- Main Content Area -->
+    <main class="flex-1 w-full max-w-7xl mx-auto py-4 sm:py-8 px-2 sm:px-4 lg:px-6 overflow-x-clip">
+      <slot />
+    </main>
+
+    <!-- Footer -->
+    <Footer locale={locale} />
+  </body>
+</html>

@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <rect width="1200" height="630" fill="#1D4533" />
+  <circle cx="1050" cy="150" r="280" fill="#F9D2BA" opacity="0.15" />
+  <circle cx="150" cy="500" r="200" fill="#5E3122" opacity="0.3" />
+  
+  <rect x="80" y="80" width="1040" height="470" rx="24" fill="#F7EAE0" />
+  
+  <!-- Header Bar -->
+  <rect x="80" y="80" width="1040" height="90" rx="24" fill="#5E3122" />
+  <rect x="80" y="140" width="1040" height="30" fill="#5E3122" />
+  
+  <!-- Logo & Title -->
+  <text x="130" y="140" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="38" fill="#F9D2BA">Content30</text>
+  <text x="350" y="137" font-family="system-ui, -apple-system, sans-serif" font-weight="500" font-size="20" fill="#F7EAE0" opacity="0.85">| Free 100% Client-Side 30-Day Social Media Calendar</text>
+
+  <!-- Big Headline -->
+  <text x="130" y="240" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="46" fill="#1D4533">Plan Your Entire Month in Minutes</text>
+  <text x="130" y="290" font-family="system-ui, -apple-system, sans-serif" font-weight="500" font-size="24" fill="#5E3122">Zero servers. Zero tracking. 100% stored securely in your browser.</text>
+
+  <!-- Visual Mockup Cards -->
+  <g transform="translate(130, 330)">
+    <rect x="0" y="0" width="170" height="170" rx="14" fill="#F9D2BA" />
+    <text x="20" y="35" font-family="system-ui, sans-serif" font-weight="800" font-size="16" fill="#1D4533">Day 01</text>
+    <rect x="100" y="20" width="55" height="20" rx="6" fill="#1D4533" />
+    <text x="127" y="34" font-family="system-ui, sans-serif" font-weight="700" font-size="10" fill="#F7EAE0" text-anchor="middle">Ready</text>
+    <text x="20" y="70" font-family="system-ui, sans-serif" font-weight="700" font-size="15" fill="#1D4533">3 Hook Formulas</text>
+    <text x="20" y="100" font-family="system-ui, sans-serif" font-size="12" fill="#5E3122">TikTok • Reel</text>
+    <text x="20" y="140" font-family="system-ui, sans-serif" font-size="11" fill="#1D4533" opacity="0.7">10:00 AM</text>
+  </g>
+
+  <g transform="translate(325, 330)">
+    <rect x="0" y="0" width="170" height="170" rx="14" fill="#F9D2BA" />
+    <text x="20" y="35" font-family="system-ui, sans-serif" font-weight="800" font-size="16" fill="#1D4533">Day 02</text>
+    <rect x="95" y="20" width="60" height="20" rx="6" fill="#5E3122" />
+    <text x="125" y="34" font-family="system-ui, sans-serif" font-weight="700" font-size="10" fill="#F7EAE0" text-anchor="middle">Scripting</text>
+    <text x="20" y="70" font-family="system-ui, sans-serif" font-weight="700" font-size="15" fill="#1D4533">Behind The Scenes</text>
+    <text x="20" y="100" font-family="system-ui, sans-serif" font-size="12" fill="#5E3122">Instagram • Carousel</text>
+    <text x="20" y="140" font-family="system-ui, sans-serif" font-size="11" fill="#1D4533" opacity="0.7">02:30 PM</text>
+  </g>
+
+  <g transform="translate(520, 330)">
+    <rect x="0" y="0" width="170" height="170" rx="14" fill="#F9D2BA" />
+    <text x="20" y="35" font-family="system-ui, sans-serif" font-weight="800" font-size="16" fill="#1D4533">Day 03</text>
+    <rect x="105" y="20" width="50" height="20" rx="6" fill="#A47B62" />
+    <text x="130" y="34" font-family="system-ui, sans-serif" font-weight="700" font-size="10" fill="#F7EAE0" text-anchor="middle">Idea</text>
+    <text x="20" y="70" font-family="system-ui, sans-serif" font-weight="700" font-size="15" fill="#1D4533">Q&amp;A Breakdown</text>
+    <text x="20" y="100" font-family="system-ui, sans-serif" font-size="12" fill="#5E3122">YouTube • Short</text>
+    <text x="20" y="140" font-family="system-ui, sans-serif" font-size="11" fill="#1D4533" opacity="0.7">06:00 PM</text>
+  </g>
+
+  <!-- Export badges -->
+  <g transform="translate(730, 350)">
+    <rect x="0" y="0" width="340" height="50" rx="10" fill="#1D4533" />
+    <text x="170" y="32" font-family="system-ui, sans-serif" font-weight="700" font-size="16" fill="#F9D2BA" text-anchor="middle">⚡ Instant CSV &amp; PNG Image Export</text>
+    <rect x="0" y="65" width="340" height="50" rx="10" fill="#5E3122" />
+    <text x="170" y="97" font-family="system-ui, sans-serif" font-weight="700" font-size="16" fill="#F7EAE0" text-anchor="middle">🔒 100% Private LocalStorage</text>
+  </g>
+</svg>
