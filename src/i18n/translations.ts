@@ -218,7 +218,7 @@ export const translations: Record<string, Translation> = {
       tagline: "Free 100% Client-Side 30-Day Social Media Calendar.",
       craftedWith: "Built with Astro, React, and Tailwind CSS for maximum speed and privacy.",
       privacyFirst: "All data stays stored locally on your device.",
-      supportDevText: "Buy Me a Coffee",
+      supportDevText: "Support on Ko-fi",
       allRightsReserved: "All rights reserved. Free for commercial and personal creator use."
     }
   },

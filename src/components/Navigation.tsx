@@ -161,9 +161,9 @@ export const Navigation: React.FC<NavigationProps> = ({ currentLocale }) => {
             </span>
           </button>
 
-          {/* Support Developer Button (Buy Me a Coffee) */}
+          {/* Support Developer Button (Ko-fi) */}
           <a
-            href="https://buymeacoffee.com/kisharadilz"
+            href="https://ko-fi.com/kishara"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-lg text-sm font-semibold text-[#F7EAE0] bg-[#5E3122] hover:bg-[#4C271B] dark:bg-[#F9D2BA] dark:text-[#1D4533] dark:hover:bg-[#F4BE9F] shadow-sm hover:shadow transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#5E3122] dark:focus:ring-[#F9D2BA]"
