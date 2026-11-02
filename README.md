@@ -4,7 +4,7 @@
 > Plan, organize, and export a month of high-converting social media posts directly in your browser using local storage.
 
 🌐 **Live URL**: [https://content30.github.io](https://content30.github.io)  
-☕ **Support Developer**: [ko-fi.com/kishara](https://ko-fi.com/kishara)
+☕ **Support Developer**: [kisharadilshan.gumroad.com/coffee](https://kisharadilshan.gumroad.com/coffee)
 
 ---
 
@@ -118,4 +118,4 @@ npm run preview
 ## 📄 License
 
 MIT License. Free for commercial and personal creator use.
-Developed with ❤️ by [Kishan Radilz](https://ko-fi.com/kishara).
+Developed with ❤️ by [Kishan Radilz](https://kisharadilshan.gumroad.com/coffee).
